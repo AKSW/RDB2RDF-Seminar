@@ -1,21 +1,20 @@
 CREATE TABLE product (
-    nr integer NOT NULL,
-    label character varying(100),
-    comment character varying(2000),
-    producer integer,
-    "propertyNum1" integer,
-    "propertyNum2" integer,
-    "propertyNum3" integer,
-    "propertyNum4" integer,
-    "propertyNum5" integer,
-    "propertyNum6" integer,
-    "propertyTex1" character varying(250),
-    "propertyTex2" character varying(250),
-    "propertyTex3" character varying(250),
-    "propertyTex4" character varying(250),
-    "propertyTex5" character varying(250),
-    "propertyTex6" character varying(250),
-    publisher integer,
-    "publishDate" date
+    id integer PRIMARY KEY,
+    name text,
+    producer text,
+
+    comment text,
+
+    resolution_x integer,
+    resolution_y integer,
+    color text,
+
+    publish_date date
 );
+
+
+INSERT INTO product VALUES (1, 'IPhone 5', 'Apple Inc.', 'available', 1136, 640, 'white', '2012-10-21');
+INSERT INTO product VALUES (2, 'Galaxy S III', 'Samsung', 'available', 1280, 720, 'black', '2012-10-21');
+
+
 

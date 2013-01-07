@@ -1,18 +1,13 @@
-CREATE TABLE "Sport" (
-    "ID" integer,
-    "Name" text,
-    PRIMARY KEY ("ID")
+CREATE TABLE person (
+    id integer PRIMARY KEY,
+    first_name text,
+    last_name text,
+    age integer,
+    mbox text,
+    country text
 );
 
-CREATE TABLE "Student" (
-    "ID" integer,
-    "Name" text,
-    "Sport" integer,
-    PRIMARY KEY ("ID"),
-    FOREIGN KEY("Sport") REFERENCES "Sport"("ID")
-);
-
-INSERT INTO "Sport" ("ID", "Name") VALUES (100,'Tennis');
-INSERT INTO "Student" ("ID", "Name", "Sport") VALUES (10,'Venus Williams', 100);
-INSERT INTO "Student" ("ID", "Name", "Sport") VALUES (20,'Demi Moore', NULL);
+INSERT INTO person VALUES (1, 'Anne' , 'Miller', 20, 'anne@example.org', 'us');
+INSERT INTO person VALUES (2, 'John' , 'Wayne', 30, 'john@example.org', 'us');
+INSERT INTO person VALUES (3, 'Frank', 'Sinatra', 40, 'frank@example.org', 'de');
 
