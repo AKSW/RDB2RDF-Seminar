@@ -1,0 +1,25 @@
+Prefix foaf:<http://xmlns.com/foaf/0.1/>
+Prefix r:<http://example.org/resource/>
+Prefix o:<http://example.org/ontology/>
+Prefix xsd:<http://www.w3.org/2001/XMLSchema#>
+
+Create View people As
+  Construct {
+    ?s
+      a foaf:Person    ;
+      o:firstName  ?fn ;
+      o:lastName  ?ln  ;
+      foaf:age     ?a  ;
+      foaf:mbox    ?m  ;
+      foaf:country ?c  .
+  }
+  With
+    ?s  = uri(concat(r:person, '/', ?id))
+    ?fn = plainLiteral(?first_name)
+    ?ln = plainLiteral(?last_name)
+    ?a  = typedLiteral(?age, xsd:int)
+    ?m  = plainLiteral(?mbox)
+    ?c  = uri(concat('http://countries.org/', ?country))
+  From
+    person
+
