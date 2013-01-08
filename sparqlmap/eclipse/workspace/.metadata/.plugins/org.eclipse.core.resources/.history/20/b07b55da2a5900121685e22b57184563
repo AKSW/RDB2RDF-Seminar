@@ -1,0 +1,128 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+@prefix rr:      <http://www.w3.org/ns/r2rml#> .
+
+@prefix bsbm:    <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> .
+@prefix instance:      <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> .
+@prefix mapping: <http://localhost/mapping/>.
+
+
+mapping:ReviewMapping
+	rr:logicalTable [
+		rr:tableName "review"];
+	rr:predicateObjectMap 
+		[ 
+			rr:object  "text" ;
+        	rr:predicate rdfs:label;
+		] ;
+	rr:predicateObjectMap 
+		[ 
+			rr:objectMap[ rr:template "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/Product{product_id}" ];
+        	rr:predicate bsbm:aboutProduct;
+		] ;
+	rr:predicateObjectMap 
+		[ 
+			rr:objectMap[ 
+				rr:parentTriplesMap mapping:PersonMapping;
+				rr:joinCondition[
+					rr:parent "id";
+					rr:child "person_id";
+				];
+			];
+        	rr:predicate dcterms:creator;
+		] ;		
+	rr:subjectMap
+		[ rr:class bsbm:Review ;
+          rr:template "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/Review{id}"
+        ] .
+
+
+mapping:productMapping
+	rr:logicalTable [
+		rr:tableName "product"]; 
+	rr:predicateObjectMap 
+		[ 
+			rr:object  "name" ;
+        	rr:predicate rdfs:label
+		] ;
+	rr:predicateObjectMap 
+		[ 
+			rr:object "description" ;
+			rr:predicate rdfs:comment
+        ] ;
+    rr:predicateObjectMap 
+		[ 
+			rr:object "producer" ;
+			rr:predicate dcterms:creator;
+        ] ;
+    rr:predicateObjectMap 
+		[ 
+			rr:object "resolution_x" ;
+			rr:predicate bsbm:resolution_x
+        ] ;
+    rr:predicateObjectMap 
+		[ 
+			rr:object "resolution_y" ;
+			rr:predicate bsbm:resolution_y
+        ] ;
+	rr:predicateObjectMap 
+		[ 
+			rr:object "color" ;
+			rr:predicate bsbm:color
+        ] ;
+    rr:predicateObjectMap 
+		[ 
+			rr:object "date" ;
+			rr:predicate dcterms:created
+        ] ;    
+	rr:subjectMap
+		[ rr:class bsbm:Product ;
+          rr:template "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/Product{id}"
+        ] .
+
+mapping:PersonMapping
+      rr:logicalTable
+      		 [
+                rr:tableName "person"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "first_name"
+                        ] ;
+                rr:predicate foaf:firstName
+              ] ;
+       rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "last_name"
+                        ] ;
+                rr:predicate foaf:givenName
+              ] ;        
+       rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "age"
+                        ] ;
+                rr:predicate bsbm:age
+              ] ;        
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "mbox"
+                        ] ;
+                rr:predicate foaf:mbox
+              ] ;
+                    rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://downlode.org/rdf/iso-3166/countries#{country}"
+                        ] ;
+                rr:predicate bsbm:country
+              ] ;   
+      rr:subjectMap
+              [ rr:class foaf:Person ;
+                rr:template "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/Person{id}"
+              ] .
+
+
