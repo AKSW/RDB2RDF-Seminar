@@ -50,7 +50,7 @@ mapping:ProductMapping
         ] ;    
 	rr:subjectMap
 		[ rr:class vocab:Product ;
-          rr:template "http://example.org/resource/Product{id}"
+          rr:template "http://example.org/resource/product{id}"
         ] .
 
 mapping:PersonMapping
@@ -90,7 +90,7 @@ mapping:PersonMapping
               ] ;   
       rr:subjectMap
               [ rr:class foaf:Person ;
-                rr:template "http://example.org/resource/Person{id}"
+                rr:template "http://example.org/resource/person{id}"
               ] .
 
 
