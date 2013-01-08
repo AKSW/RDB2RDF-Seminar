@@ -48,7 +48,7 @@ rr:predicateObjectMap
 mapping:PersonMapping
       rr:logicalTable
       		 [
-                rr:tableName "person"
+                rr:sqlQuery """select *, concat('mailto:', p.mbox) as mbox_prefix from person p"""
               ] ;
       rr:predicateObjectMap
               [ rr:objectMap
@@ -77,8 +77,8 @@ mapping:PersonMapping
               ] ;        
       rr:predicateObjectMap
               [ rr:objectMap
-                        [ rr:template "mailto:{mbox}"
-						  
+                        [ rr:column "mbox_prefix";
+						  rr:termType rr:IRI
                         ] ;
                 rr:predicate foaf:mbox
               ] ;
@@ -92,47 +92,51 @@ mapping:PersonMapping
               [ rr:class foaf:Person ;
                 rr:template "http://example.org/resource/person{id}"
               ] .
-
 mapping:ProductMapping
 	rr:logicalTable [
 		rr:tableName "product"]; 
 	rr:predicateObjectMap 
 		[ 
-			rr:object  "name" ;
+		    rr:objectMap
+				[ rr:column   "name" ];
         	rr:predicate rdfs:label
 		] ;
 	rr:predicateObjectMap 
 		[ 
-			rr:object "description" ;
+			rr:objectMap
+				[rr:column "comment" ];
 			rr:predicate rdfs:comment
         ] ;
     rr:predicateObjectMap 
 		[ 
-			rr:object "producer" ;
+			rr:objectMap
+				[rr:column "producer" ];
 			rr:predicate dcterms:creator;
         ] ;
     rr:predicateObjectMap 
 		[ 
-			rr:objectMap [ 
-				rr:column "resolution_x"; 
-];
+			rr:objectMap
+				[rr:column "resolution_x";
+				rr:datatype xsd:positiveInteger; ] ;
 			rr:predicate vocab:resolution_x
         ] ;
     rr:predicateObjectMap 
 		[ 
-			rr:objectMap [ 
-				rr:column "resolution_y"; 
-];
+			rr:objectMap
+				[rr:column "resolution_y";
+				rr:datatype xsd:positiveInteger;  ];
 			rr:predicate vocab:resolution_y
         ] ;
 	rr:predicateObjectMap 
 		[ 
-			rr:object "color" ;
+			rr:objectMap
+				[rr:column "color" ];
 			rr:predicate vocab:color
         ] ;
     rr:predicateObjectMap 
 		[ 
-			rr:object "date" ;
+			rr:objectMap
+				[rr:column "publish_date" ];
 			rr:predicate dcterms:created
         ] ;    
 	rr:subjectMap

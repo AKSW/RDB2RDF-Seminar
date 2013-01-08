@@ -48,37 +48,44 @@ mapping:ProductMapping
 		rr:tableName "product"]; 
 	rr:predicateObjectMap 
 		[ 
-			rr:object  "name" ;
+		    rr:objectMap
+				[ rr:column   "name" ];
         	rr:predicate rdfs:label
 		] ;
 	rr:predicateObjectMap 
 		[ 
-			rr:object "description" ;
+			rr:objectMap
+				[rr:column "comment" ];
 			rr:predicate rdfs:comment
         ] ;
     rr:predicateObjectMap 
 		[ 
-			rr:object "producer" ;
+			rr:objectMap
+				[rr:column "producer" ];
 			rr:predicate dcterms:creator;
         ] ;
     rr:predicateObjectMap 
 		[ 
-			rr:object "resolution_x" ;
+			rr:objectMap
+				[rr:column "resolution_x" ] ;
 			rr:predicate vocab:resolution_x
         ] ;
     rr:predicateObjectMap 
 		[ 
-			rr:object "resolution_y" ;
+			rr:objectMap
+				[rr:column "resolution_y" ];
 			rr:predicate vocab:resolution_y
         ] ;
 	rr:predicateObjectMap 
 		[ 
-			rr:object "color" ;
+			rr:objectMap
+				[rr:column "color" ];
 			rr:predicate vocab:color
         ] ;
     rr:predicateObjectMap 
 		[ 
-			rr:object "date" ;
+			rr:objectMap
+				[rr:column "publish_date" ];
 			rr:predicate dcterms:created
         ] ;    
 	rr:subjectMap
