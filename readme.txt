@@ -1,10 +1,15 @@
 Aufgaben:
 
 Task1:
+* Die Tabelle person soll vollständig gemappt werden. Die noch fehlenden Spalten sollen so gemappt werden, das out1.nt mit ref1.nt übereinstimmt.
 
 Task2:
+* Die Tabelle product soll vollständig gemappt werden, so dass out2.nt mit ref2.nt übereinstimmt.
 
 Task3:
+* Die Tabelle review soll so gemappt werden, das alle Spalten abgedeckt sind.
+* Die Beziehungen zwischen review und person sowie review und product werden gemappt.
+
 
 
 Task4:
@@ -17,8 +22,9 @@ Das Schema aus Task 3 wird erweitert.
 
 
 
-Online-Resourcen:
+Wichtige Online Resourcen:
 R2RML: http://www.w3.org/2001/sw/rdb2rdf/r2rml/
+Sparqliy-ML: https://github.com/AKSW/Sparqlify
 
 
 
