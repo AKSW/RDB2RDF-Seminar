@@ -7,10 +7,9 @@
 
 @prefix rr:      <http://www.w3.org/ns/r2rml#> .
 
-@prefix bsbm:    <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> .
-@prefix instance:      <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> .
-@prefix mapping: <http://localhost/mapping/>.
-
+@prefix vocab:    <http://example.org/vocab/> .
+@prefix instance:      <http://example.org/resource/> .
+@prefix mapping: <http://exmaple.org/mapping/>.
 
 mapping:ReviewMapping
 	rr:logicalTable [
@@ -24,8 +23,8 @@ mapping:ReviewMapping
 		] ;
 	rr:predicateObjectMap 
 		[ 
-			rr:objectMap[ rr:template "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/Product{product_id}" ];
-        	rr:predicate bsbm:aboutProduct;
+			rr:objectMap[ rr:template "http://example.org/resource/Product{product_id}" ];
+        	rr:predicate vocab:aboutProduct;
 		] ;
 	rr:predicateObjectMap 
 		[ 
@@ -39,8 +38,8 @@ mapping:ReviewMapping
         	rr:predicate dcterms:creator;
 		] ;		
 	rr:subjectMap
-		[ rr:class bsbm:Review ;
-          rr:template "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/Review{id}"
+		[ rr:class vocab:Review ;
+          rr:template "http://example.org/resource/Review{id}"
         ] .
 
 
@@ -65,17 +64,17 @@ mapping:ProductMapping
     rr:predicateObjectMap 
 		[ 
 			rr:object "resolution_x" ;
-			rr:predicate bsbm:resolution_x
+			rr:predicate vocab:resolution_x
         ] ;
     rr:predicateObjectMap 
 		[ 
 			rr:object "resolution_y" ;
-			rr:predicate bsbm:resolution_y
+			rr:predicate vocab:resolution_y
         ] ;
 	rr:predicateObjectMap 
 		[ 
 			rr:object "color" ;
-			rr:predicate bsbm:color
+			rr:predicate vocab:color
         ] ;
     rr:predicateObjectMap 
 		[ 
@@ -83,8 +82,8 @@ mapping:ProductMapping
 			rr:predicate dcterms:created
         ] ;    
 	rr:subjectMap
-		[ rr:class bsbm:Product ;
-          rr:template "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/Product{id}"
+		[ rr:class vocab:Product ;
+          rr:template "http://example.org/resource/Product{id}"
         ] .
 
 mapping:PersonMapping
@@ -108,7 +107,7 @@ mapping:PersonMapping
               [ rr:objectMap
                         [ rr:column "age"
                         ] ;
-                rr:predicate bsbm:age
+                rr:predicate vocab:age
               ] ;        
       rr:predicateObjectMap
               [ rr:objectMap
@@ -120,11 +119,11 @@ mapping:PersonMapping
               [ rr:objectMap
                         [ rr:template "http://downlode.org/rdf/iso-3166/countries#{country}"
                         ] ;
-                rr:predicate bsbm:country
+                rr:predicate vocab:country
               ] ;   
       rr:subjectMap
               [ rr:class foaf:Person ;
-                rr:template "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/Person{id}"
+                rr:template "http://example.org/resource/Person{id}"
               ] .
 
 

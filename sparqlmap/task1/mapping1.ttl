@@ -7,10 +7,9 @@
 
 @prefix rr:      <http://www.w3.org/ns/r2rml#> .
 
-@prefix bsbm:    <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> .
-@prefix instance:      <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> .
-@prefix mapping: <http://localhost/mapping/>.
-
+@prefix vocab:    <http://example.org/vocab/> .
+@prefix instance:      <http://example.org/resource/> .
+@prefix mapping: <http://exmaple.org/mapping/>.
 mapping:PersonMapping
       rr:logicalTable
       		 [
@@ -32,7 +31,7 @@ mapping:PersonMapping
               [ rr:objectMap
                         [ rr:column "age"
                         ] ;
-                rr:predicate bsbm:age
+                rr:predicate vocab:age
               ] ;        
       rr:predicateObjectMap
               [ rr:objectMap
@@ -44,11 +43,11 @@ mapping:PersonMapping
               [ rr:objectMap
                         [ rr:template "http://downlode.org/rdf/iso-3166/countries#{country}"
                         ] ;
-                rr:predicate instance:country
+                rr:predicate vocab:country
               ] ;   
       rr:subjectMap
               [ rr:class foaf:Person ;
-                rr:template "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/Person{id}"
+                rr:template "http://example.org/resource/Person{id}"
               ] .
 
 
