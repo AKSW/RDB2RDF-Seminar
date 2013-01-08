@@ -17,5 +17,5 @@ db_name="task$suffix"
 
 sparqlify_config="$wd/task${suffix}/mapping${suffix}.sparqlify"
 
-java -cp "$sparqlifySrc/sparqlify-core/target/sparqlify-core-jar-with-dependencies.jar" org.aksw.sparqlify.web.Main -h "$db_host" -u "$db_user" -p "$db_pass" -d "$db_name" -c "$sparqlify_config" -D -t 5
+java -cp "$sparqlifySrc/sparqlify-core/target/sparqlify-core-jar-with-dependencies.jar" org.aksw.sparqlify.web.Main -h "$db_host" -u "$db_user" -p "$db_pass" -d "$db_name" -c "$sparqlify_config" -D -t 5 | sort
 
