@@ -1,24 +1,24 @@
 Prefix foaf:<http://xmlns.com/foaf/0.1/>
 Prefix r:<http://example.org/resource/>
-Prefix o:<http://example.org/ontology/>
+Prefix v:<http://example.org/vocab/>
 Prefix xsd:<http://www.w3.org/2001/XMLSchema#>
 Prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+
+Prefix dcterms:<http://purl.org/dc/terms/>
 
 Create View review As
   Construct {
     ?s
-      a o:Review ;
+      a v:Review ;
       rdfs:label ?l ;
-      o:person ?person ;
-      o:product ?product ;
-//      o:publishDate ?publishDate .
+      dcterms:creator ?person ;
+      v:aboutProduct ?product ;
   }
   With
-    ?s = uri(concat(r:review, '/', ?id))
+    ?s = uri(concat(r:review, ?id))
     ?l = plainLiteral(?text)
-    ?person = uri(concat(r:person, '/', ?person_id))
-    ?product = uri(concat(r:product, '/', ?product_id))
-//    ?publishDate = plainLiteral(?publishDate, xsd:date)
+    ?person = uri(concat(r:person, ?person_id))
+    ?product = uri(concat(r:product, ?product_id))
   From
     review;
 
