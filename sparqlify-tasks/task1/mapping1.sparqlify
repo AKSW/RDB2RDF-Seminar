@@ -15,7 +15,7 @@ Create View people As
       foaf:country  ?c  .
   }
   With
-    ?s  = uri(concat(r:person, '/', ?id))
+    ?s  = uri(concat(r:person, ?id))
     ?fn = plainLiteral(?first_name)
     ?ln = plainLiteral(?last_name)
     ?a  = typedLiteral(?age, xsd:integer)
