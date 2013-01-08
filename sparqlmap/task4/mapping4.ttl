@@ -25,7 +25,7 @@ mapping:ReviewMapping
 		] ;
 	rr:predicateObjectMap 
 		[ 
-			rr:objectMap[ rr:template "http://example.org/resource/Product{product_id}" ];
+			rr:objectMap[ rr:template "http://example.org/resource/product{product_id}" ];
         	rr:predicate vocab:aboutProduct;
 		] ;
 rr:predicateObjectMap 
@@ -42,7 +42,7 @@ rr:predicateObjectMap
 
 	rr:subjectMap
 		[ rr:class vocab:Review ;
-          rr:template "http://example.org/resource/writtenBy{last_name}/Review{id}/"
+          rr:template "http://example.org/resource/writtenby{last_name}/review{id}/"
         ] .
 
 mapping:PersonMapping
@@ -90,7 +90,7 @@ mapping:PersonMapping
               ] ;   
       rr:subjectMap
               [ rr:class foaf:Person ;
-                rr:template "http://example.org/resource/Person{id}"
+                rr:template "http://example.org/resource/person{id}"
               ] .
 
 mapping:ProductMapping
@@ -115,7 +115,6 @@ mapping:ProductMapping
 		[ 
 			rr:objectMap [ 
 				rr:column "resolution_x"; 
-#				rr:datatype vocab:Pixel
 ];
 			rr:predicate vocab:resolution_x
         ] ;
@@ -123,7 +122,6 @@ mapping:ProductMapping
 		[ 
 			rr:objectMap [ 
 				rr:column "resolution_y"; 
-#				rr:datatype vocab:Pixel;
 ];
 			rr:predicate vocab:resolution_y
         ] ;
@@ -139,7 +137,7 @@ mapping:ProductMapping
         ] ;    
 	rr:subjectMap
 		[ rr:class vocab:Product ;
-          rr:template "http://example.org/resource/Product{id}"
+          rr:template "http://example.org/resource/product{id}"
         ] .
 
 

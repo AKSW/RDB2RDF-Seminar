@@ -47,7 +47,7 @@ mapping:PersonMapping
               ] ;   
       rr:subjectMap
               [ rr:class foaf:Person ;
-                rr:template "http://example.org/resource/Person{id}"
+                rr:template "http://example.org/resource/person{id}"
               ] .
 
 
