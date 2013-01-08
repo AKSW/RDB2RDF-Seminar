@@ -1,21 +1,16 @@
 #!/bin/bash
 
 wd="$(dirname $0)"
+cd "$wd"
 
-# Script for starting Sparqlify with a given task number:
-#
-# Usage Example:
-#     ./run-sparqlify 1     <-- Runs the first task (searches for a file task1.sparlqlify)
-#
+git init results >> git.log
 
-source "$wd/../setup/config.ini"
-source "$wd/config.ini"
+find . -name 'mapping*.sparqlify' | grep -v 'results' | xargs -I@ cp --parents -uf @ results
 
-suffix="$1"
-db_name="task$suffix"
+cd results
+git add -A
+git commit -m "next" >> ../git.log
 
-
-sparqlify_config="$wd/task${suffix}/mapping${suffix}.sparqlify"
-
-java -cp "$sparqlifySrc/sparqlify-core/target/sparqlify-core-jar-with-dependencies.jar" org.aksw.sparqlify.web.Main -h "$db_host" -u "$db_user" -p "$db_pass" -d "$db_name" -c "$sparqlify_config" -D -t 5 | sort
+cd "$wd"
+./run-sparqlify-core.sh $@
 
