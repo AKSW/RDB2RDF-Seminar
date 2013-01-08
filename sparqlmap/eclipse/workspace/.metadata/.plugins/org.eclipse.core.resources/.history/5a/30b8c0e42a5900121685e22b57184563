@@ -1,0 +1,54 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+@prefix rr:      <http://www.w3.org/ns/r2rml#> .
+
+@prefix bsbm:    <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> .
+@prefix instance:      <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> .
+@prefix mapping: <http://localhost/mapping/>.
+
+mapping:productMapping
+      rr:logicalTable
+      		 [
+                rr:tableName "person"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "first_name"
+                        ] ;
+                rr:predicate foaf:firstName
+              ] ;
+       rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "last_name"
+                        ] ;
+                rr:predicate foaf:givenName
+              ] ;        
+       rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "age"
+                        ] ;
+                rr:predicate bsbm:age
+              ] ;        
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "mbox"
+                        ] ;
+                rr:predicate foaf:mbox
+              ] ;
+                    rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://downlode.org/rdf/iso-3166/countries#{country}"
+                        ] ;
+                rr:predicate instance:country
+              ] ;   
+      rr:subjectMap
+              [ rr:class foaf:Person ;
+                rr:template "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/Person{id}"
+              ] .
+
+

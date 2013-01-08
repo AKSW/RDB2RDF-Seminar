@@ -5,7 +5,6 @@ if [ "$USER" != "root" ]; then
     exit 1
 fi
 
-apt-get install postgresql
 su postgres -c 'dropdb task1'
 su postgres -c 'createdb task1'
 su postgres -c 'psql -d task1 -f task1.sql'
