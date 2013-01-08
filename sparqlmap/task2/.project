@@ -3,6 +3,7 @@
 	<name>rdb2rdf.task2</name>
 	<comment></comment>
 	<projects>
+		<project>xturtle.core</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

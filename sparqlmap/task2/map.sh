@@ -10,3 +10,4 @@ fi
 
 java -jar ../sparqlmap/sparqlmap-0.6.1-SNAPSHOT-jar-with-dependencies.jar sparqlmap.dump -r2rmlfile mapping2.ttl -dburi jdbc:postgresql://localhost/task2 -dbuser postgres -dbpass postgres | sort  -o out2.nt
 
+../commit.sh

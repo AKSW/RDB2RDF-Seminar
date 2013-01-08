@@ -10,6 +10,8 @@
 @prefix vocab:    <http://example.org/vocab/> .
 @prefix instance:      <http://example.org/resource/> .
 @prefix mapping: <http://exmaple.org/mapping/>.
+
+
 mapping:PersonMapping
       rr:logicalTable
       		 [
@@ -19,32 +21,14 @@ mapping:PersonMapping
               [ rr:objectMap
                         [ rr:column "first_name"
                         ] ;
-                rr:predicate foaf:firstName
+                rr:predicate foaf:givenName;
               ] ;
-       rr:predicateObjectMap
-              [ rr:objectMap
-                        [ rr:column "last_name"
-                        ] ;
-                rr:predicate foaf:givenName
-              ] ;        
-       rr:predicateObjectMap
+      rr:predicateObjectMap
               [ rr:objectMap
                         [ rr:column "age"
                         ] ;
                 rr:predicate vocab:age
               ] ;        
-      rr:predicateObjectMap
-              [ rr:objectMap
-                        [ rr:column "mbox"
-                        ] ;
-                rr:predicate foaf:mbox
-              ] ;
-                    rr:predicateObjectMap
-              [ rr:objectMap
-                        [ rr:template "http://downlode.org/rdf/iso-3166/countries#{country}"
-                        ] ;
-                rr:predicate vocab:country
-              ] ;   
       rr:subjectMap
               [ rr:class foaf:Person ;
                 rr:template "http://example.org/resource/person{id}"
