@@ -21,4 +21,10 @@ su postgres -c 'psql -d task3 -f task1.sql'
 su postgres -c 'psql -d task3 -f task2.sql'
 su postgres -c 'psql -d task3 -f task3.sql'
 
+su postgres -c 'dropdb task4'
+su postgres -c 'createdb task4'
+su postgres -c 'psql -d task4 -f task1.sql'
+su postgres -c 'psql -d task4 -f task2.sql'
+su postgres -c 'psql -d task4 -f task3.sql'
+
 
